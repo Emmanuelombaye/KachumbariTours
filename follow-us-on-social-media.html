@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kachumbari Travel Tours | Coastal Luxury</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box
+        }
+
+        body {
+            font-family: "Poppins", sans-serif;
+            background:
+                linear-gradient(rgba(6, 17, 28, .6), rgba(6, 17, 28, .9)),
+                url("https://images.unsplash.com/photo-1507525428034-b723cf961d3ee?auto=format&fit=crop&w=1600&q=80") center/cover fixed;
+            color: #fff;
+            min-height: 100vh;
+        }
+
+        /* MAIN WRAPPER */
+        .wrapper {
+            max-width: 620px;
+            margin: auto;
+            padding: 50px 22px 120px;
+            text-align: center;
+            backdrop-filter: blur(18px);
+            background: rgba(6, 17, 28, .55);
+            border-radius: 30px;
+            box-shadow: 0 25px 80px rgba(0, 0, 0, .8);
+        }
+
+        /* LOGO */
+        .logo {
+            width: 150px;
+            height: 150px;
+            margin: auto;
+            border-radius: 50%;
+            overflow: hidden;
+            box-shadow: inset 0 0 25px rgba(255, 255, 255, .4), 0 30px 70px rgba(0, 0, 0, .7);
+        }
+
+        .logo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover
+        }
+
+        /* BANNER */
+        .banner {
+            margin: 32px 0;
+            border-radius: 24px;
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, .7);
+        }
+
+        .banner img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover
+        }
+
+        /* TEXT */
+        h1 {
+            font-size: 2.7rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        .tagline {
+            font-size: 1.1rem;
+            color: #eaf3ff;
+            margin-bottom: 40px;
+            letter-spacing: .6px;
+        }
+
+        /* GLOSS */
+        @keyframes gloss {
+            0% {
+                left: -120%
+            }
+
+            100% {
+                left: 120%
+            }
+        }
+
+        /* WEBSITE BUTTON */
+        .website-btn {
+            display: block;
+            margin: 0 auto 50px;
+            padding: 22px 34px;
+            border-radius: 30px;
+            font-size: 1.3rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, #f6e7a6, #d4af37);
+            color: #06111c;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 28px 75px rgba(0, 0, 0, .75);
+            transition: .4s ease;
+        }
+
+        .website-btn::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: -130%;
+            width: 60%;
+            height: 100%;
+            background: linear-gradient(120deg, transparent, rgba(255, 255, 255, .8), transparent);
+            animation: gloss 4s infinite;
+        }
+
+        .website-btn:hover {
+            transform: translateY(-6px) scale(1.04);
+            box-shadow: 0 45px 120px rgba(0, 0, 0, .85);
+        }
+
+        /* SOCIAL CARDS */
+        .social-cards {
+            display: flex;
+            flex-direction: column;
+            gap: 18px;
+            margin-bottom: 55px
+        }
+
+        .social-card {
+            display: flex;
+            align-items: center;
+            padding: 20px 28px;
+            border-radius: 26px;
+            font-size: 1.15rem;
+            font-weight: 600;
+            color: #f6e7a6;
+            background: rgba(255, 255, 255, .08);
+            border: 1px solid rgba(255, 255, 255, .2);
+            backdrop-filter: blur(16px);
+            box-shadow: 0 22px 60px rgba(0, 0, 0, .65);
+            transition: .4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .social-card svg {
+            width: 30px;
+            height: 30px;
+            margin-right: 18px;
+            fill: #f6e7a6
+        }
+
+        .social-card::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: -130%;
+            width: 55%;
+            height: 100%;
+            background: linear-gradient(120deg, transparent, rgba(255, 255, 255, .35), transparent);
+            animation: gloss 5s infinite;
+        }
+
+        .social-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 40px 95px rgba(0, 0, 0, .85);
+        }
+
+        /* GOOGLE REVIEW */
+        .review-section {
+            margin: 50px 0 40px;
+            padding: 38px 28px;
+            border-radius: 28px;
+            background: linear-gradient(145deg, rgba(255, 255, 255, .12), rgba(255, 255, 255, .04));
+            border: 1px solid rgba(255, 215, 140, .25);
+            backdrop-filter: blur(18px);
+            box-shadow: 0 32px 90px rgba(0, 0, 0, .75);
+            text-align: center;
+        }
+
+        .review-section h2 {
+            font-size: 1.9rem;
+            font-weight: 700;
+            margin-bottom: 14px;
+            background: linear-gradient(90deg, #f5d27a, #d4af37);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .review-section p {
+            font-size: 1.05rem;
+            color: #eaf3ff;
+            margin-bottom: 26px;
+            line-height: 1.6;
+        }
+
+        .review-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            padding: 18px 32px;
+            border-radius: 32px;
+            font-size: 1.15rem;
+            font-weight: 700;
+            color: #06111c;
+            background: linear-gradient(135deg, #f6e7a6, #d4af37);
+            box-shadow: 0 25px 70px rgba(0, 0, 0, .8);
+            position: relative;
+            overflow: hidden;
+            transition: .35s ease;
+        }
+
+        .review-btn svg {
+            width: 26px;
+            height: 26px;
+            fill: #06111c
+        }
+
+        .review-btn::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: -130%;
+            width: 60%;
+            height: 100%;
+            background: linear-gradient(120deg, transparent, rgba(255, 255, 255, .85), transparent);
+            animation: gloss 4.5s infinite;
+        }
+
+        .review-btn:hover {
+            transform: translateY(-6px) scale(1.04);
+            box-shadow: 0 40px 110px rgba(0, 0, 0, .9);
+        }
+
+        /* VIDEO */
+        .video-container {
+            margin: 50px 0;
+            border-radius: 24px;
+            overflow: hidden;
+            box-shadow: 0 30px 75px rgba(0, 0, 0, .7);
+            position: relative;
+            padding-bottom: 56.25%;
+        }
+
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+
+        /* FOOTER */
+        .footer {
+            margin-top: 55px;
+            font-size: .9rem;
+            color: #dbeafe;
+            letter-spacing: .5px;
+        }
+
+        /* POWERED BY */
+        .lux-powered {
+            margin-top: 28px;
+            font-size: 14px;
+            color: #f5f4f2;
+        }
+
+        .lux-powered a {
+            margin-left: 6px;
+            font-weight: 600;
+            color: #d4a706;
+            text-decoration: none;
+            position: relative;
+        }
+
+        .lux-powered a::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: -4px;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, #cfa14a, #f5d27a);
+            transition: .3s ease;
+        }
+
+        .lux-powered a:hover::after {
+            width: 100%
+        }
+
+        /* WHATSAPP FLOAT */
+        .whatsapp-btn {
+            position: fixed;
+            bottom: 28px;
+            right: 28px;
+            width: 64px;
+            height: 64px;
+            background: linear-gradient(135deg, #25D366, #128C7E);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 15px 45px rgba(0, 0, 0, .7);
+            transition: .3s ease;
+            z-index: 1000;
+        }
+
+        .whatsapp-btn:hover {
+            transform: scale(1.12)
+        }
+
+        .whatsapp-btn svg {
+            width: 30px;
+            height: 30px;
+            fill: #fff
+        }
+
+        /* MOBILE */
+        @media(max-width:480px) {
+            h1 {
+                font-size: 2.2rem
+            }
+
+            .website-btn {
+                font-size: 1.15rem
+            }
+
+            .social-card {
+                font-size: 1.05rem
+            }
+
+            .review-section h2 {
+                font-size: 1.6rem
+            }
+
+            .review-btn {
+                font-size: 1.05rem;
+                padding: 16px 26px
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="wrapper">
+
+        <div class="logo">
+            <img src="assets/img/kachumbari-tour-logo.jpg" alt="Kachumbari Travel Logo">
+        </div>
+
+        <div class="banner">
+            <img src="assets/img/kachumbari-travel-tour-team.jpg" alt="Luxury Banner">
+        </div>
+
+        <h1>Kachumbari Travel Tours</h1>
+        <p class="tagline">Connect with us
+        on Social Media</p>
+
+        <a href="https://kachumbaritraveltour.com" class="website-btn" target="_blank"> Visit Official Website</a>
+
+        <div class="social-cards">
+            <a href="https://www.facebook.com/kachumbaritours" class="social-card">Follow us on Facebook</a>
+            <a href="https://www.instagram.com/kachumburi_travel_tours/" class="social-card">Follow us on Instagram</a>
+            <a href="https://www.tiktok.com/@kachumbari_travel_tours" class="social-card">Follow us on TikTok</a>
+            <a href="https://www.youtube.com/@KachumbariTravelTours" class="social-card">Subscribe on YouTube</a>
+            <a href="https://www.linkedin.com/in/kachumbari-tours-174002289/" class="social-card">Follow us on
+                LinkedIn</a>
+        </div>
+
+        <!-- GOOGLE REVIEW ABOVE VIDEO -->
+        <div class="review-section">
+            <h2>Enjoyed Your Experience?</h2>
+            <p>Your feedback helps others discover our luxury travel services.</p>
+            <a href="https://www.google.com/search?q=kachumbari+travel+tours&rlz=1C1JJTC_enKE1184KE1184&oq=kachu&gs_lcrp=EgZjaHJvbWUqBwgFEAAYgAQyDQgAEAAY4wIYsQMYgAQyCggBEC4YsQMYgAQyBggCEEUYOTIHCAMQABiABDIHCAQQABiABDIHCAUQABiABDIHCAYQLhiABDIHCAcQABiABDIHCAgQABiABDIHCAkQLhiABNIBCDQ2MDdqMGo3qAIIsAIB8QV7JnwqXBE8og&sourceid=chrome&ie=UTF-8&lqi=ChdrYWNodW1iYXJpIHRyYXZlbCB0b3Vyc0iyk7nB8LiAgAhaLxAAEAEQAhgAGAEYAiIXa2FjaHVtYmFyaSB0cmF2ZWwgdG91cnMqCAgCEAAQARACkgEWdHJhbnNwb3J0YXRpb25fc2VydmljZQ#rlimm=164007732789901407&lrd=0x184045e5ee83c69d:0x246ac29fd5bf85f,3,,,," class="review-btn" target="_blank">
+                ⭐ Leave Us a Google Review
+            </a>
+        </div>
+
+        <div class="video-container">
+            <iframe src="https://www.youtube.com/embed/Y4NYP8Dimpw" allowfullscreen></iframe>
+        </div>
+
+        <div class="footer">© 2026 Kachumbari Travel Tours • Coastal Luxury Redefined</div>
+
+        <div class="lux-powered">
+            Powered by
+            <a href="https://wa.me/254777770755" target="_blank">DonFilm Creations</a>
+        </div>
+
+    </div>
+
+    <a href="https://wa.me/254745162872" class="whatsapp-btn" target="_blank">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+            <path
+                d="M380.9 97.1C339-18 190.3-10.1 122 71.7 41.2 157.5 37.5 306 122 392c40.7 40.5 94.3 63.2 148.3 63.2" />
+        </svg>
+    </a>
+
+</body>
+
+</html>
